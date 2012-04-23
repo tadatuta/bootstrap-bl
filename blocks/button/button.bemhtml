@@ -1,0 +1,17 @@
+block button {
+    tag: 'span',
+    js: true
+}
+
+block button, this.ctx.url {
+   tag: 'a'
+   attrs: { href: this.ctx.url  }
+}
+
+block button, this.ctx.type {
+    tag: 'input',
+    attrs: {
+        type: this.ctx.type,
+        value: this.ctx.content
+    }
+}

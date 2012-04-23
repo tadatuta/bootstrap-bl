@@ -1,0 +1,187 @@
+// BUTTON STYLES
+// -------------
+
+
+// Base styles
+// --------------------------------------------------
+
+// Core
+.button {
+  display: inline-block;
+  .ie7-inline-block();
+  padding: 4px 10px 4px;
+  margin-bottom: 0; // For input.button
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight;
+  color: @grayDark;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255,255,255,.75);
+  vertical-align: middle;
+  .buttonBackground(@btnBackground, @btnBackgroundHighlight);
+  border: 1px solid @btnBorder;
+  border-bottom-color: darken(@btnBorder, 10%);
+  .border-radius(4px);
+  @shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  .box-shadow(@shadow);
+  cursor: pointer;
+
+  // Give IE7 some love
+  .ie7-restore-left-whitespace();
+}
+
+// Hover state
+.button:hover {
+  color: @grayDark;
+  text-decoration: none;
+  background-color: darken(@white, 10%);
+  background-position: 0 -15px;
+
+  // transition is only when going to hover, otherwise the background
+  // behind the gradient (there for IE<=9 fallback) gets mismatched
+  .transition(background-position .1s linear);
+}
+
+// Focus state for keyboard and accessibility
+.button:focus {
+  .tab-focus();
+}
+
+// Active state
+.button.active,
+.button:active {
+  background-image: none;
+  @shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  .box-shadow(@shadow);
+  background-color: darken(@white, 10%);
+  background-color: darken(@white, 15%) e("\9");
+  outline: 0;
+}
+
+// Disabled state
+.button.disabled,
+.button[disabled] {
+  cursor: default;
+  background-image: none;
+  background-color: darken(@white, 10%);
+  .opacity(65);
+  .box-shadow(none);
+}
+
+
+// Button Sizes
+// --------------------------------------------------
+
+// Large
+.button_size_large {
+  padding: 9px 14px;
+  font-size: @baseFontSize + 2px;
+  line-height: normal;
+  .border-radius(5px);
+}
+.button_size_large [class^="icon-"] {
+  margin-top: 1px;
+}
+
+// Small
+.button_size_small {
+  padding: 5px 9px;
+  font-size: @baseFontSize - 2px;
+  line-height: @baseLineHeight - 2px;
+}
+.button_size_small [class^="icon-"] {
+  margin-top: -1px;
+}
+
+// Mini
+.button_size_mini {
+  padding: 2px 6px;
+  font-size: @baseFontSize - 2px;
+  line-height: @baseLineHeight - 4px;
+}
+
+
+// Alternate buttons
+// --------------------------------------------------
+
+// Set text color
+// -------------------------
+.button_theme_primary,
+.button_theme_primary:hover,
+.button_theme_warning,
+.button_theme_warning:hover,
+.button_theme_danger,
+.button_theme_danger:hover,
+.button_theme_success,
+.button_theme_success:hover,
+.button_theme_info,
+.button_theme_info:hover,
+.button_theme_inverse,
+.button_theme_inverse:hover {
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  color: @white;
+}
+// Provide *some* extra contrast for those who can get it
+.button_theme_primary.active,
+.button_theme_warning.active,
+.button_theme_danger.active,
+.button_theme_success.active,
+.button_theme_info.active,
+.button_theme_inverse.active {
+  color: rgba(255,255,255,.75);
+}
+
+// Set the backgrounds
+// -------------------------
+.button_theme_primary {
+  .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
+}
+// Warning appears are orange
+.button_theme_warning {
+  .buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
+}
+// Danger and error appear as red
+.button_theme_danger {
+  .buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+}
+// Success appears as green
+.button_theme_success {
+  .buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
+}
+// Info appears as a neutral blue
+.button_theme_info {
+  .buttonBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
+}
+// Inverse appears as dark gray
+.button_theme_inverse {
+  .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
+}
+
+
+// Cross-browser Jank
+// --------------------------------------------------
+
+button.button,
+input[type="submit"].button {
+
+  // Firefox 3.6 only I believe
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+
+  // IE7 has some default padding on button controls
+  *padding-top: 2px;
+  *padding-bottom: 2px;
+  &.button_size_large {
+    *padding-top: 7px;
+    *padding-bottom: 7px;
+  }
+  &.button_size_small {
+    *padding-top: 3px;
+    *padding-bottom: 3px;
+  }
+  &.button_size_mini {
+    *padding-top: 1px;
+    *padding-bottom: 1px;
+  }
+}

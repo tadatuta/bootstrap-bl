@@ -1,0 +1,38 @@
+// LABELS
+// ------
+
+// Base
+.label {
+  padding: 1px 4px 2px;
+  font-size: @baseFontSize * .846;
+  font-weight: bold;
+  line-height: 13px; // ensure proper line-height if floated
+  color: @white;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  background-color: @grayLight;
+  .border-radius(3px);
+}
+
+// Hover state
+.label:hover {
+  color: @white;
+  text-decoration: none;
+}
+
+// Colors
+.label-important        { background-color: @errorText; }
+.label-important:hover  { background-color: darken(@errorText, 10%); }
+
+.label_theme_warning          { background-color: @orange; }
+.label_theme_warning:hover    { background-color: darken(@orange, 10%); }
+
+.label_theme_success          { background-color: @successText; }
+.label_theme_success:hover    { background-color: darken(@successText, 10%); }
+
+.label_theme_info             { background-color: @infoText; }
+.label_theme_info:hover       { background-color: darken(@infoText, 10%); }
+
+.label_theme_inverse             { background-color: @grayDark; }
+.label_theme_inverse:hover       { background-color: darken(@grayDark, 10%); }

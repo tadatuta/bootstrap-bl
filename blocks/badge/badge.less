@@ -1,0 +1,36 @@
+// BADGES
+// ------
+
+// Base
+.badge {
+  padding: 1px 9px 2px;
+  font-size: @baseFontSize * .925;
+  font-weight: bold;
+  white-space: nowrap;
+  color: @white;
+  background-color: @grayLight;
+  .border-radius(9px);
+}
+
+// Hover state
+.badge:hover {
+  color: @white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+// Colors
+.badge-error            { background-color: @errorText; }
+.badge-error:hover      { background-color: darken(@errorText, 10%); }
+
+.badge_theme_warning          { background-color: @orange; }
+.badge_theme_warning:hover    { background-color: darken(@orange, 10%); }
+
+.badge_theme_success          { background-color: @successText; }
+.badge_theme_success:hover    { background-color: darken(@successText, 10%); }
+
+.badge_theme_info             { background-color: @infoText; }
+.badge_theme_info:hover       { background-color: darken(@infoText, 10%); }
+
+.badge_theme_inverse          { background-color: @grayDark; }
+.badge_theme_inverse:hover    { background-color: darken(@grayDark, 10%); }
