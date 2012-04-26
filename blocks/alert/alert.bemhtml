@@ -1,0 +1,14 @@
+block alert {
+    content: [
+        {
+            elem: 'close',
+            cls: 'close',
+            tag: 'span',
+            attrs: { 'data-dismiss': 'alert' },
+            content: 'x'
+        },
+        this.ctx.content
+    ]
+}
+
+
