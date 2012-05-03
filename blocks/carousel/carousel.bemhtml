@@ -9,12 +9,12 @@ block carousel {
         },
         {
             elem: 'control',
-            elemMods: { slide: 'prev' },
+            elemMods: { slide: 'left' },
             content: '‹'
         },
         {
             elem: 'control',
-            elemMods: { slide: 'next' },
+            elemMods: { slide: 'right' },
             content: '›'    
         }
     ]
