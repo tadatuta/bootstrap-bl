@@ -1,7 +1,7 @@
 BEM.DOM.decl('alert',
 {
     onSetMod: {
-        'js': {
+        'js': function() {
             console.log('hello!');
         }    
     }
