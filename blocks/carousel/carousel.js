@@ -13,7 +13,7 @@ BEM.DOM.decl('carousel',
         }    
     },
     update: function() {
-        this.elem('item', 'state', 'active') || this.setMod(this.elem('item').eq(0), 'state', 'active');
+        this.elem('item', 'state', 'active').length || this.setMod(this.elem('item').eq(0), 'state', 'active');
     },
     next: function() {
         return this.slide('next');        
