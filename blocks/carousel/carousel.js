@@ -6,7 +6,7 @@ BEM.DOM.decl('carousel',
             var _this = this;
  
             this.bindTo(this.elem('control'), 'click', function(e) {
-                _this.hasMod('control', 'slide', 'left') ? _this.prev() : _this.next();
+                _this.hasMod(e.data.domElem, 'slide', 'left') ? _this.prev() : _this.next();
             });
 
             this.update();
